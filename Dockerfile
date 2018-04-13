@@ -7,13 +7,7 @@ RUN mkdir -p /go/src
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-RUN apk add --no-cache py-pip
-RUN pip install docker-compose
+RUN apk add --no-cache python3 python3-dev py3-pip gcc g++ musl-dev
 
-RUN apk add --no-cache python3 py3-pip
-
-RUN apk add --no-cache gcc g++ musl-dev
-
-RUN apk add --no-cache python3-dev
-
+RUN pip3 install docker-compose
 RUN pip3 install grpcio
